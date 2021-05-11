@@ -1,6 +1,11 @@
 # pinpoint-journeys-adminevent-trigger
 Triggering a Pinpoint Journey based on a company wide event e.g. new feature release and reaching out to multiple customers
 
+## Use cases:
+* Automate new product release communications to all customers
+* Automate system updates' communications that take place in the background but customers need to be informed
+* Any backend process that customers need to be informed for and emits an event 
+
 ## Background: 
 Companies strive to build personalized user experiences and communications, thus many marketing communication tools place the customer at the centre of their operations / features. Companies use customer events on their mobile or web applications to trigger personalised user journeys. However there is also the case where the company might want to initiate a user journey for a segment based on a companywide event such as new feature release.
 Amazon Pinpoint can send a Campaign or initiate a Journey based on a user event. Though only customers who trigger that event will go through the journey or receive the campaign communications. This functionality does not cover use cases where the company would like to use an event to trigger a Campaign or Journey for a whole segment.
@@ -22,3 +27,5 @@ Depending the use-case the above scenario can be solved in different ways
 * **How to add Yes/No condition for a segment:** Since all communications to customers are being send by Lambdas, the Lambda code should create as many Pinpoint Campaigns as required depending the conditions e.g. customers who belong to segment A will receive email-A and customers who belong to segment B will receive email-B. In that case the Lambda should create two Pinpoint Campaigns where each of them would send email-A to segment A and email-B to segment-B
 * **Use customers’ communication interaction events such as email delivered:** This approach cannot obtain and use customers’ communication interaction events as Pinpoint Journeys does for single customers
 
+## Example architecture
+![alt text](https://github.com/Pioank/pinpoint-journeys-adminevent-trigger/blob/main/admin-event-architecture.JPG)
